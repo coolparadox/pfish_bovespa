@@ -10,6 +10,8 @@ libpfish_bovespa_la_LDFLAGS = -version-info 0:0:0 -lpfish_syslog
 
 bin_PROGRAMS = pfish_bovespa_library_info pfish_bovespa_database_init pfish_bovespa_file_import pfish_bovespa_stock_list pfish_bovespa_stock_history
 
+bin_SCRIPTS = pfish_bovespa_bdi_06_pdftocotahist pfish_bovespa_bdi_06_pdftotext pfish_bovespa_database_update
+
 pfish_bovespa_library_info_SOURCES = pilot_fish/bovespa.h pilot_fish/bovespa_stdint.h library_info.c 
 pfish_bovespa_library_info_LDADD = -lpfish_syslog -lpfish_bovespa
 
@@ -24,6 +26,10 @@ pfish_bovespa_stock_list_LDADD = -lpfish_syslog -lpfish_bovespa
 
 pfish_bovespa_stock_history_SOURCES = pilot_fish/bovespa.h pilot_fish/bovespa_stdint.h stock_history.c
 pfish_bovespa_stock_history_LDADD = -lpfish_syslog -lpfish_bovespa
+
+pfish_bovespa_%: scripts/%.sh
+	cp -f $< $@
+	chmod a+x $@
 
 CLEANFILES = $(bin_SCRIPTS)
 
