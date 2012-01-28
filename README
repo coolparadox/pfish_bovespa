@@ -1,0 +1,7 @@
+pilot_fish/bovespa is a C parser of BM&FBOVESPA <http://www.bmfbovespa.com.br> historical quotes files.
+A C library and a CLI interface are provided for accessing parsing results.
+
+Historical quotes files must be previously downloaded from BM&FBOVESPA's site. 
+
+Rafael Lorandi
+http://coolparadox.github.com
